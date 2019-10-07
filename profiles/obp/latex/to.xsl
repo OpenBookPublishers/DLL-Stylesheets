@@ -50,5 +50,16 @@ of this software, even if advised of the possibility of such damage.
    </doc>
 
    <xsl:param name="latexPaperSize">royaloctavo</xsl:param>
+   <xsl:param name="latexGeometryOptions">
+     paperwidth=156mm,
+     paperheight=234mm,
+     twoside,
+     headsep=10mm,
+     top=30mm,
+     bottom=20mm,
+     inner=25mm,
+     outer=20mm,
+     marginparsep=0mm
+   </xsl:param>
 
 </xsl:stylesheet>
