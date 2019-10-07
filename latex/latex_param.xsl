@@ -417,6 +417,10 @@ characters. The normal characters remain active for LaTeX commands.
 	 \paperwidth216mm
 	 \paperheight279mm
        </xsl:when>
+       <xsl:when test="$latexPaperSize='royaloctavo'">
+	 \paperwidth158mm
+	 \paperheight253mm
+       </xsl:when>
 	 <xsl:otherwise>
 	 </xsl:otherwise>
        </xsl:choose>       
