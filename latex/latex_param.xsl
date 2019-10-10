@@ -124,8 +124,10 @@ the beginning of the document</desc>
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{marginnote}
-
 </xsl:text>
+
+<xsl:value-of select="$include-pagestyle"/>
+
 <xsl:if test="not($marginFont='')">
 \renewcommand*{\marginfont}{<xsl:value-of select="$marginFont"/>}
 </xsl:if>
@@ -617,18 +619,22 @@ characters. The normal characters remain active for LaTeX commands.
 }
 \makeatother
 \fvset{frame=single,numberblanklines=false,xleftmargin=5mm,xrightmargin=5mm}
-\fancyhf{} 
-\setlength{\headheight}{14pt}
-\fancyhead[LE]{\bfseries\leftmark} 
-\fancyhead[RO]{\bfseries\rightmark} 
-\fancyfoot[RO]{}
-\fancyfoot[CO]{\thepage}
-\fancyfoot[LO]{\TheID}
-\fancyfoot[LE]{}
-\fancyfoot[CE]{\thepage}
-\fancyfoot[RE]{\TheID}
-\hypersetup{</xsl:text><xsl:value-of select="$hyperSetup"/><xsl:text>}
-\fancypagestyle{plain}{\fancyhead{}\renewcommand{\headrulewidth}{0pt}}</xsl:text>
+</xsl:text>
+<xsl:if test="$pageStyle = 'fancy'">
+  <xsl:text>
+    \fancyhf{}
+    \setlength{\headheight}{14pt}
+    \fancyhead[LE]{\bfseries\leftmark}
+    \fancyhead[RO]{\bfseries\rightmark}
+    \fancyfoot[RO]{}
+    \fancyfoot[CO]{\thepage}
+    \fancyfoot[LO]{\TheID}
+    \fancyfoot[LE]{}
+    \fancyfoot[CE]{\thepage}
+    \fancyfoot[RE]{\TheID}
+    \hypersetup{</xsl:text><xsl:value-of select="$hyperSetup"/><xsl:text>}
+    \fancypagestyle{plain}{\fancyhead{}\renewcommand{\headrulewidth}{0pt}}</xsl:text>
+</xsl:if>
    </xsl:template>
 
    <doc xmlns="http://www.oxygenxml.com/ns/doc/xsl" class="layout">

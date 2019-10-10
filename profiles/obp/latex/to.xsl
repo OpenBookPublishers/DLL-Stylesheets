@@ -62,4 +62,17 @@ of this software, even if advised of the possibility of such damage.
      marginparsep=0mm
    </xsl:param>
 
+   <xsl:param name="pageStyle">obp-book-style</xsl:param>
+   <xsl:param name="include-pagestyle">
+     \fancypagestyle{obp-book-style}{
+       \fancyhead{}
+       \fancyfoot{}
+       \fancyhead[CE]{\footnotesize\itshape\nouppercase{\leftmark}}
+       \fancyhead[CO]{\footnotesize\itshape\nouppercase{\rightmark}}
+       \fancyhead[LE]{\footnotesize\itshape\nouppercase{\thepage}}
+       \fancyhead[RO]{\footnotesize\itshape\nouppercase{\thepage}}
+       \renewcommand{\headrulewidth}{0pt}
+     }
+   </xsl:param>
+
 </xsl:stylesheet>
